@@ -13,7 +13,20 @@ void rectTact (int x, int y, int w, int h ) {
   }
 }
 
+
 void mouseReleased () {
+
+  if (mode == GAME) {
+    gameClick();
+  } else if (mode == OPTIONS) {
+    optionsClick();
+  } else if (mode == PAUSE) {
+    pausesClick();
+  } else if (mode == GAMEOVER) {
+    gameoverClick();
+  }
+
+
 
   if (mode == START) {
     if (mouseX > 300 && mouseX < 700 && mouseY > 550 && mouseY < 650) {
