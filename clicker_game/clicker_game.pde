@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 int mode;
 
 int START = 0;
@@ -16,6 +23,11 @@ color grey = #B7B7B7;
 color dGrey = #868585;
 color white = #FFFFFF;
 
+//minim variables
+
+Minim minim;
+AudioPlayer music, success,failure;
+
 void setup () {
   size(1000, 1000);
   mode = START;
@@ -27,6 +39,11 @@ void setup () {
   vx = random(-5,5);
   vy = random(-5,5);
  
+  //minim
+  minim = new Minim(this);
+  music = minim.loadFile("MUSIC.mp3");
+  success = minim.loadFile("SUCCESS.wav");
+  failure = minim.loadFile("FAILURE.wav");
 }
 
 void draw () {

@@ -1,4 +1,5 @@
 void starts () {
+  music.play();
   background (grey);
 
   fill(255);
