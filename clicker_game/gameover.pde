@@ -2,11 +2,22 @@ void gameover () {
   music.pause();
   failure.play();
   background ( 255,0,0);
-  fill(0);
-  rect(350,200,300,200);
+  fill(white);
+  rectfunc(300,200,400,150,white);
+  fill(grey);
+  textSize(75);
+  text("TRY AGAIN?", 325,300);
   
-  score = 0;
-  lives = 3;
+  fill(white);
+  textSize(150);
+  text("GAME OVER", 150,600);
+  
+  textSize(75);
+  text("HIGH SCORE :" + hScore, 275,800);
+  
+  if (hScore < score) {
+    hScore = score;
+  }
 }
 
 void gameoverClick () {

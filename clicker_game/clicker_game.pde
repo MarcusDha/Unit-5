@@ -12,8 +12,11 @@ int GAME = 1;
 int OPTIONS = 2;
 int PAUSE = 3;
 int GAMEOVER = 4;
+
 int score;
 int lives = 3;
+int hScore;
+float slideY = 300;
 
 float x, y, d;
 float vx, vy;
@@ -48,9 +51,7 @@ void setup () {
 
 void draw () {
   
-  //ball movement
-  x = x + vx;
-  y = y + vy;
+  d = map (slideY, 140, 455, 25, 100);
   
   if ( x < d/2 || x > width-d/2) {
     vx = vx * -1;
