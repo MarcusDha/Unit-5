@@ -16,6 +16,7 @@ int START = 2;
 int PAUSE = 3;
 int mode;
 
+int lscore,rscore,timer;
 
 //PADDLES + BALL
 float padLX, padLY, padD, padRX, padRY, ballX, ballY, ballD, ballVX, ballVY; 
@@ -65,11 +66,10 @@ void draw () {
   
   if (dist(padLX, padLY, ballX, ballY) <= padD/2 + ballD/2) {
      ballVX = ballVX * -1;
-     //ballVY = ballVY * -1;
   }
   
   if (dist(padRX, padRY, ballX, ballY) <= padD/2 + ballD/2) {
      ballVX = ballVX * -1;
-     //ballVY = ballVY * -1;
+     ballVY = ballVY * -1;
   }
 }
