@@ -16,13 +16,13 @@ int START = 2;
 int PAUSE = 3;
 int mode;
 
-int lscore,rscore,timer;
+int lscore,rscore,timer, time;
 
 //PADDLES + BALL
 float padLX, padLY, padD, padRX, padRY, ballX, ballY, ballD, ballVX, ballVY; 
 
 //KEYBOARD VARIABLES
-boolean wkey,skey,upkey,downkey;
+boolean wkey,skey,upkey,downkey, AI;
 
 
 void setup () {
@@ -40,11 +40,16 @@ void setup () {
   ballX = width/2;
   ballY = height/2;
   ballD = 50;
-  ballVX = random(-5,5);
+  ballVX = 5;
   ballVY = random(-5,5);
   
   //keyboard vars
   wkey = skey = upkey = downkey = false;
+  
+  //score text
+  lscore = rscore = 0;
+  timer = 100;
+  time = 3;
 }
 
 void draw () {
@@ -65,11 +70,12 @@ void draw () {
   }
   
   if (dist(padLX, padLY, ballX, ballY) <= padD/2 + ballD/2) {
-     ballVX = ballVX * -1;
+     ballVX = (ballX - padLX) /15;
+     ballVY = (ballY - padLY) /15;
   }
   
   if (dist(padRX, padRY, ballX, ballY) <= padD/2 + ballD/2) {
-     ballVX = ballVX * -1;
-     ballVY = ballVY * -1;
+     ballVX = (ballX - padRX) /15;
+     ballVY = (ballY - padRY) /15;
   }
 }
